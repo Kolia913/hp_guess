@@ -1,37 +1,51 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import React from "react";
+import { Tabs } from "expo-router";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import Feather from "@expo/vector-icons/Feather";
+import ResetButton from "@/components/ResetButton";
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+function TabsLayout() {
   return (
     <Tabs
+      initialRouteName={"index"}
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
+        tabBarActiveTintColor: "#000",
+        tabBarInactiveTintColor: "#6e6e6e",
+        headerStyle: {
+          borderBottomColor: "#000",
+          borderBottomWidth: 1,
+          height: 100,
+        },
+        tabBarStyle: {
+          borderTopColor: "#000",
+          borderTopWidth: 1,
+          height: 80,
+        },
+        headerRight: (props) => <ResetButton {...props} />,
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+          tabBarIcon: ({ color }) => (
+            <FontAwesome name="home" size={24} color={color} />
           ),
+          headerTitle: "Home Screen",
+          title: "Home",
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="list"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+          tabBarIcon: ({ color }) => (
+            <Feather name="list" size={24} color={color} />
           ),
+          headerTitle: "List Screen",
+          title: "List",
         }}
       />
     </Tabs>
   );
 }
+
+export default TabsLayout;
