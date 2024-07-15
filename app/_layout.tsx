@@ -11,9 +11,17 @@ function RootLayout() {
     (store) => store.fetchAllCharacters
   );
   useEffect(() => {
-    fetchAllCharacters().finally(() => {
-      SplashScreen.hideAsync();
-    });
+    fetchAllCharacters()
+      .catch((error) => {
+        Toast.show({
+          type: "error",
+          text1: "Oops... an error occured :(",
+          text2: (error as Error).message || "",
+        });
+      })
+      .finally(() => {
+        SplashScreen.hideAsync();
+      });
   }, []);
 
   return (

@@ -54,7 +54,7 @@ const CharacterProfile = ({ character }: CharacterProfileProps) => {
         </View>
       ) : (
         <View className="px-4 py-2 border-2 border-red-600 justify-center items-center">
-          <Text className="text-xl font-semibold text-red-600">
+          <Text className="text-xl font-semibold text-red-600 max-w-[100px]">
             Access Denied
           </Text>
         </View>

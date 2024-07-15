@@ -17,7 +17,7 @@ const BackButton = (props: ResetButtonProps) => {
   };
   return (
     <TouchableOpacity
-      className="ml-8 flex-row justify-start items-start gap-x-1"
+      className="mx-8 flex-row justify-start items-start gap-x-1"
       onPress={goBack}
       activeOpacity={props?.pressOpacity || 0.7}
     >

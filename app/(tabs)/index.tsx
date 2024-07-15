@@ -104,7 +104,9 @@ function Index() {
             <Text className="text-xl text-red-400">
               Failed to pick character,
             </Text>
-            <Text className="text-xl text-red-400">please try again :(</Text>
+            <Text className="text-xl text-red-400">
+              please try again or reopen app :(
+            </Text>
           </View>
         )}
         <Houses onHouseClick={tryGuessHouse} />
