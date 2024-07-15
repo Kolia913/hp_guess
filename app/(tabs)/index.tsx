@@ -14,6 +14,7 @@ function Index() {
   const pickRandomCharacter = useCharactersStore(
     (store) => store.pickRandomCharacter
   );
+
   const addGuessed = useCharactersStore((store) => store.addGuessed);
   const character = useCharactersStore((state) => state.character);
   const isError = useCharactersStore((state) => state.isError);
